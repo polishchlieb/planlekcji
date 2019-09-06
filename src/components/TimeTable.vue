@@ -1,20 +1,16 @@
 <template>
-    <div>
-        <Day v-for="(day, i) in days" :key="i"></Day>
+    <div class="timetable">
+        <day v-for="(day, i) in data.days" :key="i" :day="day"></day>
     </div>
 </template>
 
 <script>
-import Day from './Day.vue';
 import Vuex from 'vuex';
+import Day from './Day.vue';
 
 export default {
     name: 'TimeTable',
-    data() {
-        return {
-            days: this.$store.state.timetable
-        };
-    },
+    props: ['data'],
     components: {
         Day
     }
