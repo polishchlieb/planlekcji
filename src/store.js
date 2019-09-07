@@ -34,12 +34,18 @@ const store = new Vuex.Store({
 			state.newModalOpen = false;
 		},
 		setSelected(state, data) {
-			state.selected = data;
+			if(state.selected == data)
+				state.selected = null;
+			else state.selected = data;
 		},
 		deleteLesson(state, [ day, id ]) {
 			state.timetable.days[day].lessons = state.timetable.days[day].lessons.filter((e, i) => i != id)
 			state.selected = null;
 			localStorage.setItem('timetable', JSON.stringify(state.timetable));
+		},
+		loadTimetable(state, data) {
+			state.timetable = data;
+			localStorage.setItem('timetable', JSON.stringify(data));
 		}
 	}
 });

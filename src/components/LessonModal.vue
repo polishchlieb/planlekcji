@@ -1,5 +1,5 @@
 <template>
-    <div class="lessonmodal">
+    <div class="modal">
         {{ lesson.name }}<br>
         {{ lesson.room }} {{ lesson.teacher }}
 
@@ -24,10 +24,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss" scoped>
-.lessonmodal {
-    margin-top: 10px;
-    font-weight: bold;
-}
-</style>

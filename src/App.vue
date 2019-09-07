@@ -4,6 +4,10 @@
         <new-lesson-modal v-if="modalOpen"></new-lesson-modal>
         <div style="clear: both"></div>
         <lesson-modal v-if="selected"></lesson-modal>
+
+        <input type="text" v-model="tableId"> <button @click="load(tableId)">no dawaj ruski</button><br>
+        <button @click="share()">udostepnij innym ruskom</button><br><br>
+        <h1>{{ code }}</h1>
     </div>
 </template>
 
@@ -16,6 +20,10 @@ import LessonModal from './components/LessonModal.vue';
 
 export default {
     name: 'App',
+    data: () => ({
+        tableId: '',
+        code: ''
+    }),
     computed: {
         data() {
             return this.$store.state.timetable;
@@ -30,9 +38,25 @@ export default {
             return this.$store.state.selected;
         }
     },
+    methods: {
+        load(id) {
+            fetch(`/timetables/${id}`)
+                .then(res => res.json())
+                .then(res => this.$store.commit('loadTimetable', res));
+        },
+        share() {
+            fetch('/timetable', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(this.$store.state.timetable)
+            })
+                .then(res => res.text())
+                .then(res => this.code = res);
+        }
+    },
     components: {
         TimeTable, NewLessonModal, LessonModal
-    },
+    }
 };
 </script>
 
