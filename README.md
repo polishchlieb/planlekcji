@@ -1,29 +1,17 @@
-# planlekcji
+# Disclaimer: the code is **very** shitty
+## It is being written for ~20 mins daily
+### And ouh, readme is written in polish, let's continue
 
-## Project setup
-```
-npm install
-```
+# plan lekcyj
+fajny plan lekcyj, swojski, polski\
+moze kiedys bedzie fajny\
+**kiedys**
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## TODO
+- ostylowac to jakos
+- lepsze modale
+- ~~kody~~
+- weryfikacja danych wysylanych na serwer (ostrzegalem)
+- wersja na telefone
+- cos jeszcze, ale zapomnialem
+- otwierajcie issues ( ͡° ͜ʖ ͡°)
